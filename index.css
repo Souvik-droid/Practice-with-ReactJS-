@@ -1,3 +1,70 @@
-#heading {
-    color: red;
+.header {
+    display:flex;
+    background-color: blanchedalmond;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+
+    width: 8%;
+    mix-blend-mode: multiply;
+}
+
+.nav-items > ul {
+    display: flex;
+    
+}
+
+.nav-items > ul > li {
+    list-style: none;
+    display: flex;
+    padding: 20px;
+}
+
+.card {
+    background-color: #e5e7e8;
+    border: 1px solid black;
+    width: 200px;
+    height: 370px;
+    margin-top: 20px;
+    display: "flex";
+    flex-direction: column;
+    justify-content: "align-content";
+    gap: "10px";
+    
+}
+
+.card:hover {
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    border: none;
+    border-radius: 2%;
+    background-color: aqua;
+    transition-duration: 0.5s;
+}   
+
+.cardImg {
+    width: 100%;
+    max-height: 45%;
+}
+
+.search {
+    padding: 10px;
+}
+
+.hotel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2%;
+    gap: 1%;
+}
+.cardContent {
+    padding-left: 10px;
+}
+
+h4 {
+    font-size: 14px;
 }
