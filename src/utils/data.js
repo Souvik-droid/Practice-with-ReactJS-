@@ -1,23 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-
-const Header = () => {
-    return (
-        <div className='header'>
-            <img className='logo' src='https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&sf=' alt='logo'></img>
-
-            <div className='nav-items'>
-                <ul>
-                    <li>about</li>
-                    <li>list</li>
-                    <li>Contact Us</li>
-                    <li>cart</li>
-                </ul>
-            </div>
-        </div>       
-    )
-}
-
 const resObj =[
     {
       "info": {
@@ -1026,51 +1006,4 @@ const resObj =[
     }
   ];
 
-const RestroCard = (props) => {
-    console.log(props)
-    const {resData} = props
-    const {cloudinaryImageId, name, cuisines, avgRating, costForTwo, deliveryTime} = resData?.info;
-
-    return(
-        <div className="card">
-            <img className='cardImg' src={ 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+cloudinaryImageId} />
-            <div className='cardContent'>
-                <h3>{name}</h3>
-                <h4>{cuisines.join(", ")}</h4>               
-                <h4>{avgRating}</h4>
-                <h4>{costForTwo}</h4>
-                <h4>{resData.info.sla.deliveryTime} min</h4>
-            </div>
-        </div>
-    )
-}
-
-const Body = () => {
-    return(
-        <div className='body'>
-            <div className='search'>search</div>
-                <div className="hotel-container">
-                    {resObj.map((restaurant) => (
-                        <RestroCard key={restaurant.info.id} resData={restaurant}/>
-                        ))
-                    }
-            </div>
-        </div>
-    )
-}
-
-
-const App = () => {
-    return (
-        <div id='container'>
-
-            <Header />
-            <Body />
-        
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-    
-root.render(<App/>);
+  export default resObj
