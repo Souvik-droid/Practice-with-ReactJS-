@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RestroCard from '../common/RestroCard'
-import resObj from '../utils/data'
+//import resObj from '../utils/data'
 import { useState } from 'react'
 
-  const Body = () => {
+const Body = () => {
+
+    useEffect (() => {
+        livedata();
+    }, [])
+
+    const livedata = async() => {
+        const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json()
+
+        console.log(json)
+        setListOfRestaurants(json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    } 
+    
 
     // let topRated = [
     //     {
@@ -151,7 +164,11 @@ import { useState } from 'react'
     // ]
     // console.log("pre data",topRated);
 
-    const [data, setData] = useState(resObj);
+    const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+    if(listOfRestaurants.length === 0){
+        return (<div>Loading...</div>)
+    }
     return(
         <div className='body'>
             <div>
@@ -161,14 +178,14 @@ import { useState } from 'react'
                         //filter logic here
                         const filterList = resObj.filter((res) => res.info.avgRating > 4 );
                         console.log("post data",filterList);
-                        setData(filterList);
+                        setListOfRestaurants(filterList);
                     }}
                 
                 >Top rated button</button>
             </div>
                         
             <div className="hotel-container">
-                {data.map((restaurant) => (
+                {listOfRestaurants.map((restaurant) => (
                     <RestroCard key={restaurant.info.id} resData={restaurant}/>
                     ))
                 }
