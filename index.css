@@ -3,12 +3,15 @@
     background-color: blanchedalmond;
     width: 100%;
     justify-content: space-between;
+    
 }
 
 .logo {
 
     width: 8%;
     mix-blend-mode: multiply;
+    height: 100px;
+    width: auto;
 }
 
 .nav-items > ul {
@@ -39,22 +42,25 @@
     margin: 10px;
     padding: 5px;
     width: 200px;
-    height: 340px;
+    height: 310px;
+    border-radius: 3%;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
     box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transform: scale(1.1,1.1);
+    transform: scale(0.9,0.9);
     border: none;
     border-radius: 2%;
-    background-color: aqua;
+    background-color: rgb(211, 248, 248);
     transition-duration: 0.5s;
 }   
 
 .cardImg {
-    width: 100%;
+    width: 98%;
     max-height:37%;
+    border-radius: 5px;
 }
 
 .cardImg:hover{
@@ -64,6 +70,23 @@
 
 .search {
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+.search-box{
+    border-radius: 20px;
+    height: 30px;
+    width: 350px;
+    padding-left: 10px;
+}
+.search-button{
+    border-radius: 20px;
+    height: 35px;
+    width: 60px;
+    color: white;
+    background-color: black;
+    border-color: azure;
 }
 
 .hotel-container {
@@ -80,6 +103,10 @@
 
 h4 {
     font-size: 14px;
+    margin: 10px;
+}
+h3 {
+    margin: 10px ;
 }
 
 .btn {
@@ -103,11 +130,66 @@ h4 {
     background-color: #f0f0f0;
     margin: 5px;
     padding: 5px;
-    width: 180px;
+    width: 200px;
     height: 340px;
 }
 
 .shimmer-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.spinner {
+    height: 50px;
+    width: 50px;
+    animation: rotate 1s infinite linear;
+    border-radius: 50%;
+    position: relative;
+    border: 3px solid gray;
+    border-top: aqua;
+}
+
+@keyframes rotate{
+    0%   { transform: rotate(deg) }
+    100% { transform: rotate(360deg) }
+}
+
+.about-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 350px;
+    width: 300px;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient( to bottom right, red, yellow);
+    margin-top: 30px;
+    border-radius: 150px 150px 0px 0px;
+}
+
+.about-image{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid gray;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.about-content{
+    font-size: 14px;
+    text-align: center;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    
+}
+
+.error {
+    text-align: center;
 }

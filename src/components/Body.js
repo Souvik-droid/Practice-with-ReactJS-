@@ -7,6 +7,8 @@ import { Shimmer} from './Shimmer'
 const Body = () => {
 
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const  [filteredRestaurant, setFilteredRestaurant ] = useState(listOfRestaurants);
+
     const [search, setSearch] = useState("");
 
     // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
@@ -15,15 +17,17 @@ const Body = () => {
     }, []);
 
     const livedata = async() => {
-        const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch ("https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D20.2960587%26lng%3D85.8245398%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING");
         const json = await data.json()
 
         console.log('data: ',json);
         setListOfRestaurants(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurant(json.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         console.log("lor ",listOfRestaurants);
+        console.log('filter', filteredRestaurant);
         
     }; 
-    const temperaryList = listOfRestaurants;
+    
     
     return listOfRestaurants.length === 0 ? (
         <Shimmer />         
@@ -50,11 +54,11 @@ const Body = () => {
                                 
                                 console.log(search)      
                                 //filter out the searched list and update UI            
-                                const searchFilterList = temperaryList.filter((res) =>
+                                const searchFilterList = listOfRestaurants.filter((res) =>
                                     res.info.name.toLowerCase().includes(search) 
                                 );
                                 
-                                setListOfRestaurants(searchFilterList);
+                                setFilteredRestaurant(searchFilterList);
                             }}
                         >Search
                         </button>
@@ -66,14 +70,14 @@ const Body = () => {
                     onClick={() => {
                         //filter logic here
                         const filterList = listOfRestaurants.filter((res) => res.info.avgRating > 4 );
-                        setListOfRestaurants(filterList);
+                        setFilteredRestaurant(filterList);
                     }}
                 
                 >Top rated button</button>
             </div>
                         
             <div className="hotel-container">
-                {listOfRestaurants.map((restaurant) => (
+                {filteredRestaurant.map((restaurant) => (
                     <RestroCard key={restaurant.info.id} resData={restaurant}/>                    
                     ))                    
                 }
