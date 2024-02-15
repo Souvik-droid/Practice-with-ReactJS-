@@ -23,6 +23,7 @@
     list-style: none;
     display: flex;
     padding: 20px;
+    
 }
 
 /* .card {
@@ -45,6 +46,8 @@
     height: 310px;
     border-radius: 3%;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    
+    transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
@@ -58,9 +61,10 @@
 }   
 
 .cardImg {
-    width: 98%;
+    width: 100%;
     max-height:37%;
     border-radius: 5px;
+    
 }
 
 .cardImg:hover{
@@ -87,6 +91,11 @@
     color: white;
     background-color: black;
     border-color: azure;
+    
+}
+.search-button:hover{
+    background-color: darkblue;
+    cursor: pointer;
 }
 
 .hotel-container {
@@ -99,6 +108,8 @@
 }
 .cardContent {
     padding-left: 10px;
+    text-decoration-line: none ;
+    color: rgb(60, 61, 62);
 }
 
 h4 {

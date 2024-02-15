@@ -6,6 +6,7 @@ import About from './components/sub-pages/About'
 import { createBrowserRouter, RouterProvider,Outlet } from 'react-router-dom'
 import Error from './components/sub-pages/Error'
 import { ContactUs } from './components/sub-pages/ContactUs'
+import RestaurantMenu from './components/sub-pages/RestaurantMenu'
 const App = () => {
     return (
         <div id='container'>
@@ -34,14 +35,15 @@ const appRouter = createBrowserRouter([
             {
                 path:"/ContactUs",
                 element:<ContactUs/>
+            },
+            {
+                path:"/restaurantMenu/:resId",
+                element:<RestaurantMenu/>
             }
         ],
         errorElement: <Error/>
-    },
-    { 
-        path: '/about',
-        element: <About /> 
     }
+    
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

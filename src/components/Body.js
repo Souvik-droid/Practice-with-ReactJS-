@@ -3,6 +3,7 @@ import RestroCard from '../common/RestroCard'
 //import resObj from '../utils/data'
 import { useState } from 'react'
 import { Shimmer} from './Shimmer'
+import { Link } from 'react-router-dom'
 
 const Body = () => {
 
@@ -22,11 +23,12 @@ const Body = () => {
 
         console.log('data: ',json);
         setListOfRestaurants(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurant(json.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        console.log("lor ",listOfRestaurants);
-        console.log('filter', filteredRestaurant);
+        setFilteredRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         
     }; 
+    console.log("lor ",listOfRestaurants);
+    console.log('filter', filteredRestaurant);
+        
     
     
     return listOfRestaurants.length === 0 ? (
@@ -78,8 +80,15 @@ const Body = () => {
                         
             <div className="hotel-container">
                 {filteredRestaurant.map((restaurant) => (
-                    <RestroCard key={restaurant.info.id} resData={restaurant}/>                    
-                    ))                    
+
+                    <Link 
+                        key={restaurant.info.id}
+                        to={"/restaurantMenu/" + restaurant.info.id}
+                        
+                    >
+                        <RestroCard resData={restaurant}/>
+                    </Link>                   
+                ))                    
                 }
             </div>
         </div>

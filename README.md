@@ -48,3 +48,7 @@
     -Server Side Routing
         *It means  that all the routes will be handled by the server. So, if you type any route other than defined ones then also the server will handle them and send back HTML page for those URLs. 
       
+    
+# useParams
+    - useParam is a hook provided by react router dom to get the parameters from
+    the url. We can access these parameters using this hook and then use them for any purpose.
