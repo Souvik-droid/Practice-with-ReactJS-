@@ -1,4 +1,9 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .header {
     display:flex;
     background-color: blanchedalmond;
     width: 100%;
@@ -26,20 +31,8 @@
     
 }
 
-/* .card {
-    background-color: #e5e7e8;
-    border: 1px solid black;
-    width: 200px;
-    height: 370px;
-    margin-top: 20px;
-    display: "flex";
-    flex-direction: column;
-    justify-content: "align-content";
-    gap: "10px";
-    
-} */
 .card {
-    background-color: #e5e7e8;
+    background-image: linear-gradient( to bottom right, #C9C6C6, #F1F2F6);
     margin: 10px;
     padding: 5px;
     width: 200px;
@@ -56,15 +49,14 @@
     transform: scale(0.9,0.9);
     border: none;
     border-radius: 2%;
-    background-color: rgb(211, 248, 248);
+    background-image: linear-gradient( to bottom right, #F7D4D4, #F6ECC4);
     transition-duration: 0.5s;
 }   
 
 .cardImg {
     width: 100%;
-    max-height:37%;
-    border-radius: 5px;
-    
+    max-height:38%;
+    border-radius: 5px;   
 }
 
 .cardImg:hover{
@@ -79,43 +71,47 @@
     
 }
 .search-box{
-    border-radius: 20px;
-    height: 30px;
+    border-radius: 25px;
+    height: 40px;
     width: 350px;
     padding-left: 10px;
 }
 .search-button{
     border-radius: 20px;
-    height: 35px;
-    width: 60px;
+    border: 0px;
+    height: 40px;
+    width: 90px;
     color: white;
-    background-color: black;
-    border-color: azure;
-    
+    margin-left: 5px;
+    background-image: linear-gradient( to bottom right, rgb(222, 143, 251), rgb(142, 9, 190));    
 }
 .search-button:hover{
-    background-color: darkblue;
     cursor: pointer;
+}
+.search-button:active{
+    background-image: linear-gradient( to bottom right, rgb(179, 8, 241), rgb(254, 51, 51));    
+
 }
 
 .hotel-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-decoration: double;
     
-    /* margin: 2%;
-    gap: 1%;  */
 }
 .cardContent {
     padding-left: 10px;
-    text-decoration-line: none ;
+    text-decoration: none ;
     color: rgb(60, 61, 62);
+    text-decoration: double;
 }
 
 h4 {
     font-size: 14px;
     margin: 10px;
 }
+
 h3 {
     margin: 10px ;
 }
@@ -123,7 +119,7 @@ h3 {
 .btn {
     height: 30px;
     border-radius: 15px;
-    background-color: rgb(10, 209, 220);
+    background-color: rgb(40, 40, 43);
     border: none;
     margin: 20px;
     padding: 5px;
@@ -139,14 +135,58 @@ h3 {
 
 .shimmer-card {
     background-color: #f0f0f0;
-    margin: 5px;
+    margin: 10px;
     padding: 5px;
     width: 200px;
-    height: 340px;
+    height: 310px;
+    border-radius: 3%;
+}
+.dummy-image{
+    width: 96%;
+    height:37%;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 2px;
+    background-color: #e5e7e8;
+    
+}
+.shimmer-title{
+    width: 40%;
+    height: 18px;
+    background-color: #e5e7e8;
+    margin: 5px;
+    margin-top: 10px;
+}
+.shimmer-details{
+    width: 80%;
+    height: 14px;
+    background-color: #e5e7e8;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.shimmer-stars{
+    width: 20%;
+    height: 14px;
+    background-color: #e5e7e8;
+    margin: 5px;
+}
+.shimmer-price{
+    width: 50%;
+    height: 14px;
+    background-color: #e5e7e8;
+    margin: 5px;
+}
+.shimmer-time{
+    width: 30%;
+    height: 14px;
+    background-color: #e5e7e8;
+    margin: 5px;
 }
 
 .shimmer-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -170,7 +210,7 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 350px;
+    height: 380px;
     width: 300px;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
     background-image: linear-gradient( to bottom right, red, yellow);
@@ -183,7 +223,7 @@ h3 {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid gray;
+    border: 10px solid rgb(251, 250, 250);
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
@@ -204,3 +244,55 @@ h3 {
 .error {
     text-align: center;
 }
+
+
+.menu-container{
+    display: flex;
+    border-top: 1px solid rgb(200, 199, 199);
+    margin-top: 3px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    width: 800px;
+    height: 120px;
+    line-height: 1.6;
+}
+
+.menu-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 3px;
+    margin-left: 10px;
+    
+}
+.menu-page{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.item-name{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: "https://fonts.google.com/specimen/Anta";
+}
+
+.item-price{
+    font-size: 1rem;
+}
+
+.item-description{
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1;
+    margin-top: 10px;
+}
+.isVeg{
+    line-height: 0.2;
+}
+
+.isVeg > img{
+    height: 20px;
+    width: 20px;
+} */
+
