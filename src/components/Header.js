@@ -1,12 +1,21 @@
 import React, { useEffect } from 'react'
-import { LOGO } from '../utils/constants'
-import { useState } from 'react'
+import { LOGO, cart_icon } from '../utils/constants'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import UserOnlineStatus from '../utils/UserOnlineStatus'
+import UserContext from '../utils/UserContext'
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const [login, setLogin] = useState('login');
     const userStatus  = UserOnlineStatus();
+
+    const data = useContext(UserContext);
+    console.log(data)
+
+    //subscribing to the store using selector
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems)
 
     useEffect(()=>{
         console.log("useEffect rendered")
@@ -32,11 +41,15 @@ const Header = () => {
                     </li>
 
                     <li>
-                    <Link to="ContactUs">Contact Us</Link> 
+                    <Link to="/ContactUs">Contact Us</Link> 
                     </li>
 
-                    <li>
-                        cart
+                    <li className='flex flex-col-reverse text-xs -ml-1'>
+                        <Link to="/cart">
+                            
+                            <span className=' w-4 h-4 rounded-full bg-yellow-300 ml-4 flex justify-center z-10'> {cartItems.length}</span>
+                            <img className=' mix-blend-multiply h-4 w-7 -mt-2' src={cart_icon}/>
+                        </Link>
                     </li>
                     <li>
                         <button 
@@ -46,6 +59,9 @@ const Header = () => {
                         }}>
                             {login}
                         </button>
+                    </li>
+                    <li className='text-red-600'>
+                        {data.loggedInUser}
                     </li>
                 </ul>
             </div>

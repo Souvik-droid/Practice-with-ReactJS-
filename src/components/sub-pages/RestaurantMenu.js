@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
     console.log('menu',menuItems);
 
     const [showIndex, setShowIndex] = useState(null);
-    const [show, setShow] = useState(null);
+    const [show, setShow] = useState();
 
     if (menuItems === null) return <Shimmer/>
     const {name, cuisines} = menuItems?.cards[2]?.card?.card?.info
@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
     console.log("categories: " , categories);
     return (
    
-        <div className="restaurant-menu bg-[url(https://images.unsplash.com/photo-1454117096348-e4abbeba002c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D))] ">
+        <div className="restaurant-menu bg-[url(https://images.unsplash.com/photo-1454117096348-e4abbeba002c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] ">
             <h1 className=" text-4xl font-extrabold font-serif ml-48 pt-6">{name}</h1>
             <p className="text-2xl font-semibold ml-52 mb-10">{cuisines.join(", ")}</p>
             {/**categories accordian */}
@@ -34,8 +34,8 @@ const RestaurantMenu = () => {
                 <RestaurantCategory 
                     key={category?.card?.card.title} 
                     data={category?.card?.card}
-                    showItems = {index === showIndex && show === false ? true:false}                           // authority to command accordian to show its items or not
-                    setShow = {() => setShow(showItems)}
+                    showItems = {index === showIndex ? true:false}                           // authority to command accordian to show its items or not
+                    //setShow={showIndex}
                     setShowIndex = {() => setShowIndex(index)}                          //Controlled component => sending the useState to child omponent(Restaurant Category) so it can recieve the index of the accordian cliked to the parent component
                 />
             ))}            

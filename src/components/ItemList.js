@@ -1,8 +1,17 @@
 import { CDN_URL } from "../utils/constants.js";
 import { VEG, NON_VEG } from "../utils/icons.js";
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/cartSlice.js";
 
 const ItemList = ({items}) => {
   console.log("itemList items",items);
+
+  const dispatch = useDispatch();
+
+  const handleAddItems = (item) => {
+    dispatch(addItems(item))
+  }
+
   return (
     <div>
       
@@ -20,9 +29,14 @@ const ItemList = ({items}) => {
                     <p className='text-gray-500 text-sm mt-2.5 mr-1'>{item.card.info.description}</p>
                 </div>
                 <div className="">
-                <div className="absolute "><button className=" mx-12 p-0.5 my-20 bg-black text-white rounded-lg font-mono font-semibold">Add+</button></div>
-                    <img className='h-auto w-24 rounded-lg mt-1 ml-5' src={ CDN_URL+item.card.info.imageId} />
-                    
+                  <div className="absolute ">    
+                    <button  
+                      className = " mx-12 p-0.5 my-20 bg-black text-white rounded-lg font-mono font-semibold"
+                      onClick={() => handleAddItems(item)}
+                      >Add+</button>
+                  </div>
+
+                  <img className='h-auto w-24 rounded-lg mt-1 ml-5' src={ CDN_URL+item.card.info.imageId} />                    
                 </div>
                 
             </div>

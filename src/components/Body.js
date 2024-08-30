@@ -4,7 +4,7 @@ import UserOnlineStatus from '../utils/UserOnlineStatus'
 import { useState } from 'react'
 import { Shimmer} from './Shimmer'
 import { Link } from 'react-router-dom'
-import { LOGO } from '../utils/constants'
+import { OFF_LOGO } from '../utils/constants'
 
 const Body = () => {
 
@@ -24,21 +24,20 @@ const Body = () => {
         const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json()
 
-        console.log('data: ',json);
+        //console.log('data: ',json);
         setListOfRestaurants(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurant(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         
     }; 
-    console.log("lor ",listOfRestaurants);
-    console.log('filter', filteredRestaurant);
-    console.log
+    //console.log("lor ",listOfRestaurants);
+    //console.log('filter', filteredRestaurant);
         
     const onlineStatus = UserOnlineStatus()
     if(onlineStatus === false)
         return (
-            <div className="offline flex flex-col mt-4">
-                <h1 className='font-extrabold text-6xl flex justify-center items-center'>OOPS!!</h1>
-                <img className='h-28 w-28 mix-blend-multiply' src={LOGO} alt='offline' />
+            <div className="offline flex justify-center flex-col mt-4">
+                <h1 className='font-extrabold text-6xl '>OOPS!!</h1>
+                <img className='h-28 w-28 mix-blend-multiply ' src={OFF_LOGO} alt='offline' />
             </div>)
     
     
@@ -87,7 +86,7 @@ const Body = () => {
         
     )
     :   (
-        <div className='bg-[url(https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] row-span-4 flex flex-col justify-center'>
+        <div className='bg-[url(https://images.unsplash.com/photo-1454117096348-e4abbeba002c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] row-span-4 flex flex-col justify-center'>
             
             <div className='searchFilter'>
                 <div className='flex justify-center p-2.5 pt-4 mb-4'>                     
@@ -146,7 +145,7 @@ const Body = () => {
                     
                 
 
-                <div className="bg-white flex justify-center grid lg:grid-cols-4 sm:grid-cols-2 justify-items-center w-3/4 mx-44 p-2 rounded-lg">    
+                <div className=" flex justify-center grid lg:grid-cols-4 sm:grid-cols-2 justify-items-center w-3/4 mx-44 p-2 rounded-lg">    
 
                     {filteredRestaurant.map((restaurant) => (
 
