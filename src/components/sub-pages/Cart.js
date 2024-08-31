@@ -16,8 +16,9 @@ const Cart = ({items}) => {
 
     return cartList.length === 0 ? (
 
-      <div className='empty cart flex justify-center'>
-      <img className='h-64 w-64 mix-blend-multiply items-center  ' src={empty_cart} alt='empty cart' />
+      <div className='empty cart flex flex-col items-center justify-center'>
+        <h2 className='text-5xl mt-10 font-serif font-extrabold '>Your cart is empty :( </h2>
+        <img className='h-64 w-64 mt-16 mix-blend-multiply ' src={empty_cart} alt='empty cart' />
       
       </div>
       
